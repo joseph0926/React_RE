@@ -30,6 +30,7 @@ const UserForm = (props) => {
     const userData = {
       userName: enteredName,
       userAge: enteredAge,
+      userId: Math.random().toString(),
     };
 
     props.onSaveUser(userData);
@@ -59,9 +60,9 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10rem;
+  margin-bottom: 5rem;
   .form-control {
-    position: absolute;
+    position: relative;
     height: 15rem;
     width: 40rem;
     border-radius: 14px;
