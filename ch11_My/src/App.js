@@ -4,6 +4,8 @@ import Header from "./components/home/Header";
 import AvailableMeals from "./components/meals/AvailableMeals";
 import Cart from "./components/cart/Cart";
 
+import DUMMY_MEALS from "./dummy-meals";
+
 const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalOpenHandler = () => {
@@ -17,7 +19,7 @@ const App = () => {
     <Fragment>
       {isModalOpen && <Cart onModalClose={modalCloseHandler}></Cart>}
       <Header onModalOpen={modalOpenHandler}></Header>
-      <AvailableMeals></AvailableMeals>
+      <AvailableMeals meals={DUMMY_MEALS}></AvailableMeals>
     </Fragment>
   );
 };

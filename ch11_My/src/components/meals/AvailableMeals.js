@@ -5,13 +5,14 @@ import Card from "../UI/Card";
 
 import styles from "./AvailableMeals.module.css";
 
-const AvailableMeals = () => {
+const AvailableMeals = (props) => {
   return (
     <div className={styles.meals}>
       <Card>
         <ul>
-          <MealItem></MealItem>
-          <MealItem></MealItem>
+          {props.meals.map((meal) => {
+            return <MealItem key={meal.id} meal={meal}></MealItem>;
+          })}
         </ul>
       </Card>
     </div>
