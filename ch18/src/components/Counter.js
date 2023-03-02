@@ -1,28 +1,30 @@
 import { useSelector, useDispatch } from "react-redux";
 
+import { counterAction } from "../store/counter-slice";
+
 import classes from "./Counter.module.css";
 
 const Counter = () => {
   const dispatchFn = useDispatch();
   const counter = useSelector((state) => {
-    return state.counter;
+    return state.counter.counter;
   });
   const toggle = useSelector((state) => {
-    return state.showCounter;
+    return state.counter.showCounter;
   });
 
   const addHandler = () => {
-    dispatchFn({ type: "ADD" });
+    dispatchFn(counterAction.add());
   };
   const add5Handler = () => {
-    dispatchFn({ type: "ADD5", payload: 5 });
+    dispatchFn(counterAction.add5(5));
   };
   const subHandler = () => {
-    dispatchFn({ type: "SUB" });
+    dispatchFn(counterAction.sub());
   };
 
   const toggleCounterHandler = () => {
-    dispatchFn({ type: "TOGGLE" });
+    dispatchFn(counterAction.toggleCounter());
   };
 
   return (
