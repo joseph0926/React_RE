@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import styles from "./MainNav.module.css";
 
@@ -9,10 +9,25 @@ const MainNav = () => {
       <nav>
         <ul className={styles.list}>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink
+              to="/"
+              className={({ isActive }) => {
+                return isActive ? styles.active : undefined;
+              }}
+              end
+            >
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to="/products">Products</Link>
+            <NavLink
+              to="/products"
+              className={({ isActive }) => {
+                return isActive ? styles.active : undefined;
+              }}
+            >
+              Proucts
+            </NavLink>
           </li>
         </ul>
       </nav>

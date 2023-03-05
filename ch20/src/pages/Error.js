@@ -1,7 +1,13 @@
-import React from "react";
+import React, { Fragment } from "react";
+import MainNav from "../components/MainNav";
 
 const Error = () => {
-  return <div>Error</div>;
+  return (
+    <Fragment>
+      <MainNav></MainNav>
+      <h1 className="error">Error!!!!!</h1>
+    </Fragment>
+  );
 };
 
 export default Error;
