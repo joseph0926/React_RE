@@ -51,10 +51,12 @@ import Root from "./pages/Root";
 import HomePage from "./pages/HomePage";
 import EventPage, { loader as eventsLoader } from "./pages/EventPage";
 import EventDetailPage, { loader as eventDetailLoader, action as deleteEventAction } from "./pages/EventDetailPage";
-import NewEventPage, { action as newEventAction } from "./pages/NewEventPage";
+import NewEventPage from "./pages/NewEventPage";
 import EditEventPage from "./pages/EditEventPage";
 import EventRoot from "./pages/EventRoot";
 import ErrorPage from "./pages/ErrorPage";
+import { action as manipulateEventAction } from "./components/EventForm";
+import NewsletterPage, { action as newsletterAction } from "./pages/Newsletter";
 
 const router = createBrowserRouter([
   {
@@ -79,11 +81,16 @@ const router = createBrowserRouter([
             action: deleteEventAction,
             children: [
               { index: true, element: <EventDetailPage></EventDetailPage>, action: deleteEventAction },
-              { path: "edit", element: <EditEventPage></EditEventPage> },
+              { path: "edit", element: <EditEventPage></EditEventPage>, action: manipulateEventAction },
             ],
           },
-          { path: "new", element: <NewEventPage></NewEventPage>, action: newEventAction },
+          { path: "new", element: <NewEventPage></NewEventPage>, action: manipulateEventAction },
         ],
+      },
+      {
+        path: "newsletter",
+        element: <NewsletterPage />,
+        action: newsletterAction,
       },
     ],
   },
